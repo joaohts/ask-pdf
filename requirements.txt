@@ -1,5 +1,5 @@
 langchain
 openai
 streamlit
-pinecone
+pinecone-client
 fitz
