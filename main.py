@@ -72,5 +72,5 @@ if question and user_pdf:
     st.markdown("#### Answer")
     st.write(output['answer'])
 
-    st.markdown("#### Source")
+    st.markdown("#### Sources")
     st.write(output['sources'])
