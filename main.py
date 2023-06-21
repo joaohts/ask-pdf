@@ -59,9 +59,9 @@ if question and user_pdf:
         )
         
         qa_sources_chain = RetrievalQAWithSourcesChain.from_chain_type(
-            llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0),
+            llm=ChatOpenAI(model_name="gpt-3.5-turbo-16k", temperature=0),
             chain_type="stuff",
-            retriever=docsearch.as_retriever(search_kwargs={"k": 1})
+            retriever=docsearch.as_retriever(search_kwargs={"k": 3})
         )
 
         output = qa_sources_chain(question, return_only_outputs=True)
