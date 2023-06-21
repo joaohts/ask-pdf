@@ -13,9 +13,11 @@ from langchain.document_loaders import PyMuPDFLoader
 embeddings = OpenAIEmbeddings()
 pinecone.init(api_key=os.environ["PINECONE_API_KEY"], environment="us-central1-gcp")    
 
-st.set_page_config(page_title="Ask PDF", page_icon=":robot:")
+st.set_page_config(page_title="Ask PDF", page_icon=":question:")
 
 st.header(body="Ask PDF")
+
+st.markdown("#### How to \n 1. Upload document \n 2. Click to embed document and wait for processing (must be done only once) \n 3. Type and press Ctrl + enter or click the 'Press Ctrt + enter to apply' text)")
 
 user_pdf = st.file_uploader(label="Upload PDF here", type="pdf")
 
