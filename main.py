@@ -34,14 +34,14 @@ if button_click:
     texts = [doc.page_content for doc in data if doc.page_content != '']
     metadatas = [{"source": "page " + str(doc.metadata["page"])} for doc in data if doc.page_content != '']
 
-    index = pinecone.Index("langchain-pdf")
+    index = pinecone.Index("langchain-pdf-index")
     index.delete(delete_all=True)
     
     Pinecone.from_texts(
         texts=texts,
         embedding=embeddings,
         metadatas=metadatas,
-        index_name="langchain-pdf"
+        index_name="langchain-pdf-index"
     )
     
 
@@ -55,7 +55,7 @@ if question and user_pdf:
     if llm_on:
         docsearch = Pinecone.from_existing_index (
             embedding=embeddings,
-            index_name="langchain-pdf"
+            index_name="langchain-pdf-index"
         )
         
         qa_sources_chain = RetrievalQAWithSourcesChain.from_chain_type(
